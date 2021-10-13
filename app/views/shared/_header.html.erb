@@ -1,0 +1,11 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <a class="nav-link" href="/"><h1 class="display-4">Find your weather forecast</h1></a>
+    <%= form_tag zipcode_path, class: 'col-lg-6 offset-lg-3', method: :get do  %>
+      <div class="row justify-content-center">
+        <%= text_field_tag 'zipcode', nil, placeholder: 'Please enter a 5 digit zip code', class: "form-control mr-sm-2" %>
+        <%= submit_tag 'Search', class: "btn btn-outline-secondary my-2 my-sm-0" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<% if params[:zipcode].blank? %>
+  <%= render partial: 'shared/error', locals: { error_message: 'please enter a valid 5-digit zipcode'.capitalize} %>
+<% elsif @weather_output['message'].present? %>
+  <%= render partial: 'shared/error', locals: { error_message: @weather_output['message'].capitalize} %>
+<% else %>
+  <%= render partial: 'shared/current_weather', locals: {current_weather: @weather_output} %>
+  <%= render partial: 'shared/forecast', locals: {forecast: @forecast_output} %>
+<% end %>

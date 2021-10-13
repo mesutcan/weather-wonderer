@@ -1,0 +1,8 @@
+<% if @lat_lang.present? %>
+  <%= render partial: 'shared/current_weather', locals: {current_weather: @weather_output} %>
+  <%= render partial: 'shared/zipcode', locals: {forecast: @forecast_output} %>
+<% else %>
+  <script>
+      getLocation();
+  </script>
+<% end %>
