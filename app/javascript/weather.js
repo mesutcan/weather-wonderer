@@ -5,7 +5,7 @@ function getLocation() {
         navigator.geolocation.watchPosition(success, error);
     } else {
         x.style.display='block';
-        x.innerHTML = "Geolocationing is not supported by this browser.";
+        x.innerHTML = "Geo-location is not supported by this browser.";
     }
 }
 

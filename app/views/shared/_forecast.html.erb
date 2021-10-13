@@ -1,3 +1,6 @@
+<% if caching_enabled %>
+  <h1>Caching is enabled for this zip code's forecast</h1>
+<%end%>
 <div id="forecast" class="card-columns">
   <% forecast['list'].each do |forecast| %>
     <div class="card h-100">
@@ -14,5 +17,5 @@
         </small>
       </div>
     </div>
-  <%end %>
+  <%end%>
 </div>
