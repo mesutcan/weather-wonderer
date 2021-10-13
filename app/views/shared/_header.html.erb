@@ -3,7 +3,7 @@
     <a class="nav-link" href="/"><h1 class="display-4">Weather forecast by zipcode</h1></a>
     <%= form_tag zipcode_path, class: 'col-lg-6 offset-lg-3', method: :get do  %>
       <div class="row justify-content-center">
-        <%= text_field_tag 'zipcode', params[:zipcode], placeholder: 'Please enter a 5 digit zip code', class: "form-control mr-sm-2" %>
+        <%= text_field_tag 'zipcode', params[:zipcode], placeholder: 'Please enter a 5 digit zip code', id: "zipcode", class: "form-control mr-sm-2" %>
         <%= submit_tag 'Search', class: "btn btn-outline-secondary my-2 my-sm-0" %>
       </div>
     <% end %>
