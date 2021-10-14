@@ -30,6 +30,7 @@ Search the weather by US 5 digit zipcode.
 ## Tests:
 
 - Running the integration tests: rspec spec/weather_spec.rb
+- Running the service tests: rspec spec/services/service_spec_name.rb
 
 ## Troubleshooting:
 
