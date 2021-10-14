@@ -1,7 +1,4 @@
 class WeatherController < ApplicationController
-  WEATHER_BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
-  FORECAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast"
-
   # if geolocation is enabled in the browser, browser will use the current location.
   def index
     if params[:lat_long].present?

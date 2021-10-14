@@ -2,6 +2,8 @@
 
 Detailed weather forecast including high, low, pressure, humidity for curious minds.
 
+Search the weather by US 5 digit zipcode.
+
 ## Set up the environment
 
 ### Dependencies:
@@ -9,9 +11,9 @@ Detailed weather forecast including high, low, pressure, humidity for curious mi
 - Install Ruby with rbenv (`rbenv install $(cat .ruby-version)`) or rvm
 - Install gems: `bundle`
 - Install JS packages
-- Get a OpenWeather API Key:
+- Get an OpenWeatherMap API Key:
 
-    - Sign up and get a free API key
+    - Sign up and get a free API key from OpenWeatherMap's website.
     - You need to add this API key to your credentials. To do that, do below:
       - EDITOR=vim bin/rails credentials:edit
       - Add the below lines in the opened file(without the dot before each line)
