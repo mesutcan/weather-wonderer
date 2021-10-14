@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=d4d5957add7e62528cf44d6b06ab7c3f&units=imperial&zip=90049,us
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 14 Oct 2021 06:58:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '478'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?units=imperial&zip=90049,us"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-118.474,"lat":34.066},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":58.17,"feels_like":55.71,"temp_min":53.35,"temp_max":62.11,"pressure":989,"humidity":43},"visibility":10000,"wind":{"speed":1.92,"deg":116,"gust":2.93},"clouds":{"all":0},"dt":1634194739,"sys":{"type":2,"id":2012608,"country":"US","sunrise":1634133451,"sunset":1634174532},"timezone":-25200,"id":0,"name":"Los
+        Angeles","cod":200}'
+  recorded_at: Thu, 14 Oct 2021 06:58:59 GMT
+recorded_with: VCR 6.0.0

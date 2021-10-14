@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=d4d5957add7e62528cf44d6b06ab7c3f&lat=34.0522&lon=-118.2437&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Thu, 14 Oct 2021 07:04:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '522'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=34.05&lon=-118.24&units=imperial"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-118.2437,"lat":34.0522},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":58.95,"feels_like":55.62,"temp_min":53.42,"temp_max":62.85,"pressure":1013,"humidity":23,"sea_level":1013,"grnd_level":1003},"visibility":10000,"wind":{"speed":1.48,"deg":116,"gust":2.73},"clouds":{"all":0},"dt":1634194534,"sys":{"type":2,"id":2003831,"country":"US","sunrise":1634133396,"sunset":1634174478},"timezone":-25200,"id":5368361,"name":"Los
+        Angeles","cod":200}'
+  recorded_at: Thu, 14 Oct 2021 07:04:21 GMT
+recorded_with: VCR 6.0.0
