@@ -1,19 +1,42 @@
 class WeatherController < ApplicationController
-  # if geolocation is enabled in the browser, browser will use the current location.
+  before_action :fetch_location_params, only: [:index, :zipcode]
+
   def index
-    if params[:lat_long].present?
-      @lat_long = params[:lat_long].split("|")
-      @weather_output = WeatherQueryService.new(lat_long: @lat_long).call
-      @forecast_output = ForecastQueryService.new(lat_long: @lat_long).call
+    if @lat_long
+      load_weather_and_forecast(lat_long: @lat_long)
+    else
+      flash[:alert] = "Geolocation data is missing."
+      redirect_to root_path
     end
   end
 
-  # search by zipcode, comes from the search box
   def zipcode
-    if params[:zipcode].present?
-      @weather_output =  WeatherQueryService.new(zipcode: params[:zipcode]).call
-      @using_cached_forecast = Rails.cache.read("#{params[:zipcode]}").present?
-      @forecast_output = ForecastQueryService.new(zipcode: params[:zipcode]).call
+    if @zipcode
+      load_weather_and_forecast(zipcode: @zipcode)
+    else
+      flash[:alert] = "Zipcode is required."
+      redirect_to root_path
+    end
+  end
+
+  private
+
+  def fetch_location_params
+    @lat_long = params[:lat_long]&.split("|") if params[:lat_long].present?
+    @zipcode = params[:zipcode] if params[:zipcode].present?
+  end
+
+  def load_weather_and_forecast(options = {})
+    @weather_output = WeatherQueryService.new(options).call
+    @forecast_output = fetch_cached_forecast(options) || ForecastQueryService.new(options).call
+  end
+
+  def fetch_cached_forecast(options)
+    if options[:zipcode]
+      cache_key = options[:zipcode]
+      Rails.cache.fetch(cache_key, expires_in: 1.hour) do
+        ForecastQueryService.new(zipcode: cache_key).call
+      end
     end
   end
 end
